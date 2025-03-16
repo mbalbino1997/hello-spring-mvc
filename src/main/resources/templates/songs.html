@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Songs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header comune -->
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Best Songs</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Action</th> <!-- Nuova colonna per il bottone -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="song : ${songs}">
+                    <td th:text="${song.id}"></td>
+                    <td th:text="${song.title}"></td>
+                    <td>
+                        <!-- Pulsante per visualizzare i dettagli -->
+                        <a th:href="@{/songs/{id}(id=${song.id})}" class="btn btn-primary btn-sm">
+                            Dettaglio Canzone
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

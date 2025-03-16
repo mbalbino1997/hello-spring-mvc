@@ -6,15 +6,9 @@
     <title>Greeting</title>
 </head>
 <body>
-    <header></header>
+    <header><div th:replace="fragments/header :: header"></div></header>
     <main>
-        <h1>
-            Greetings!!
-        </h1>
-        <h2 th:text="'name:'+${name}"/>
-        <h2 th:text="'email:'+${email}"/>
-        <h2 th:text="'date:'+${currentDate}"/>
-
+        <h1 th:text="'best of the year...'+${name}"></h1>
     </main>
 
         
